@@ -28,7 +28,7 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: dbt
           command: ["/bin/sh", "-c", "dbt docs generate && dbt docs serve"]
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -40,8 +40,10 @@ spec:
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- with .Values.env }}
           env:
-            {{- include ".Values.env" . | indent 12 }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

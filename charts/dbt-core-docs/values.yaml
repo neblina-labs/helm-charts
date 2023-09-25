@@ -1,8 +1,10 @@
 replicaCount: 1
+
 image:
   repository: ""
   pullPolicy: Always
   tag: "latest"
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -11,13 +13,15 @@ serviceAccount:
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name: ""
+  name: "dbt-core-docs"
 podAnnotations: {}
 podSecurityContext: {}
 securityContext: {}
+
 service:
   type: ClusterIP
   port: 80
+
 ingress:
   enabled: false
   className: ""
@@ -31,11 +35,13 @@ ingress:
   #  - secretName: dbt-docs-tls
   #    hosts:
   #      - dbt-docs.neblina.co
-env: {}
+
+env: []
 resources: {}
 nodeSelector: {}
 tolerations: []
 affinity: {}
+
 autoscaling:
   enabled: false
   minReplicas: 1
