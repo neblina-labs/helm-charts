@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  dbt-core-docs:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-09-25T18:19:39.152196015Z"
+    description: A Helm chart for serving dbt-core documents in Kubernetes
+    digest: e8e3dc978631bf28fe4d992ee043b17bcd72ae3f6edab8e967e66db5671eebbf
+    name: dbt-core-docs
+    type: application
+    urls:
+    - https://github.com/neblina-labs/helm-chart/releases/download/dbt-core-docs-0.1.1/dbt-core-docs-0.1.1.tgz
+    version: 0.1.1
+generated: "2023-09-25T18:19:39.152201815Z"
