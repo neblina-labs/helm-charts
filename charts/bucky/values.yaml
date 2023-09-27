@@ -1,0 +1,54 @@
+replicaCount: 1
+
+image:
+  repository: neblina/bucky
+  pullPolicy: Always
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+serviceAccount:
+  create: true
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+podAnnotations: {}
+podSecurityContext: {}
+securityContext:
+  privileged: true
+  capabilities:
+    add:
+      - SYS_ADMIN
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: elementary-reports.neblina.co
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: elementary-reports-tls
+  #    hosts:
+  #      - elementary-reports.neblina.co
+
+env: []
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+
